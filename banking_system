@@ -1,0 +1,44 @@
+#Create a banking system to deposit and withdraw money from a user's account using Python
+
+class User():
+    def __init__(self,name,age,gender):
+        self.name= name
+        self.age= age
+        self.gender = gender
+
+
+    def show_details(self):
+        print("Personal details: ")
+        print("Name: ", self.name)
+        print("Age: ", self.age)
+        print("Gender: ", self.gender)
+
+class Bank(User):
+    def __init__(self,name,age,gender):
+        super().__init__(name, age, gender)
+        self.balance=0
+
+    def deposit(self,amount):
+        self.amount = amount
+        self.balance= self.amount + self.balance
+        print("Amount balance has been updated: €", self.balance)
+
+    def withdrawal(self, amount):
+        self.amount=amount
+
+        if self.amount>self.balance:
+            print("Insufficient funds, your balance is : €", self.balance)
+        else:
+            self.balance = self.balance - self.amount
+            print("Your account balance is: €", self.balance)
+
+name = input("Enter the name of the user: ")
+age = int(input("Enter the age of the user: "))
+gender= input("Enter the gender of the user: ")
+dep= int(input("Enter the amount to be deposited: "))
+withd= int(input("Enter the amount to be withdrawn: "))
+
+us_1= Bank(name,age, gender)
+us_1.show_details()
+us_1.deposit(dep)
+us_1.withdrawal(withd)
