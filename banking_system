@@ -42,3 +42,4 @@ us_1= Bank(name,age, gender)
 us_1.show_details()
 us_1.deposit(dep)
 us_1.withdrawal(withd)
+
